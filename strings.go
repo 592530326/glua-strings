@@ -6,7 +6,7 @@ package strings
 
 import (
 	"strings"
-
+	"unicode/utf8"
 	"github.com/chai2010/glua-helper"
 	"github.com/yuin/gopher-lua"
 )
@@ -331,6 +331,11 @@ var stringsFuncs = map[string]lua.LGFunction{
 
 		ret := strings.TrimSuffix(s, suffix)
 		return helper.RetString(L, ret)
+	},
+	"Len": func(L *lua.LState) int {
+		s := L.CheckString(1)
+		ret := utf8.RuneCountInString(s)
+		return helper.RetInt(L, ret)
 	},
 }
 
