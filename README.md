@@ -1,5 +1,5 @@
-- *Go语言QQ群: 102319854, 1055927514*
-- *凹语言(凹读音“Wa”)(The Wa Programming Language): https://github.com/wa-lang/wa*
+- *为LUA新增获取中文字符串的长度方法*
+- **
 
 ----
 
@@ -13,7 +13,7 @@ package main
 import (
 	"github.com/yuin/gopher-lua"
 
-	strings "github.com/chai2010/glua-strings"
+	strings "github.com/592530326/glua-strings"
 )
 
 func main() {
@@ -32,7 +32,8 @@ func main() {
 
 ```lua
 local strings = require("strings")
-
+local a = "你好吗111"
+print(strings.Len(a))
 print(strings.ToUpper("abc"))
 
 for i, s in ipairs(strings.Split("aa,b,,c", ",")) do
